@@ -42,11 +42,40 @@ function loadView($name, $data = [])
 function loadPartial($name, $data = [])
 {
     $partialPath = basePath("views/partials/{$name}.php");
-  
+
     if (file_exists($partialPath)) {
         extract($data);
         require $partialPath;
     } else {
         echo "Partial '{$name} not found!'";
     }
+}
+
+
+/**
+ * Inspect a value(S)
+ * 
+ * @param mixed $value
+ * @return void
+ */
+
+function inspect($value)
+{
+    echo "<pre>";
+    var_dump($value);
+    echo "</pre>";
+}
+
+/**
+ * Inspect a value(S)
+ * 
+ * @param mixed $value
+ * @return void
+ */
+
+function inspectAndDie($value)
+{
+    echo "<pre>";
+    die(var_dump($value));
+    echo "</pre>";
 }
