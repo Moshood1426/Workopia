@@ -1,12 +1,6 @@
 <?php loadPartial("head") ?>
-
-<!-- Nav -->
 <?php loadPartial("navbar") ?>
-
-<!-- Showcase -->
 <?php loadPartial("showcase-search") ?>
-
-<!-- Top Banner -->
 <?php loadPartial("top-banner") ?>
 
 <!-- Job Listings -->
