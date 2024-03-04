@@ -1,1 +1,3 @@
-<h1>Create Page</h1>
+<?php
+
+loadView("listings/create");

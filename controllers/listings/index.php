@@ -1,1 +1,3 @@
-<h1>Listings Page</h1>
+<?php
+
+loadView("listings/index");
