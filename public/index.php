@@ -11,6 +11,8 @@ $routes = [
 
 $inituri = $_SERVER["REQUEST_URI"];
 $uri = substr($inituri, 13);
+$method = $_SERVER["REQUEST_METHOD"];
+
 
 if (array_key_exists($uri, $routes)) {
     require(basePath($routes[$uri]));
