@@ -22,6 +22,7 @@ class Router
      */
     public function get($uri, $controller)
     {
+        http_response_code(200);
         $this->registerRoute("GET", $uri, $controller);
     }
 
@@ -83,12 +84,13 @@ class Router
      */
     public function route($uri, $method)
     {
+        $path = "";
         foreach ($this->routes as $route) {
             if ($route["uri"] === $uri && $route["method"] === $method) {
-                require basePath($route["controller"]);
-            }
-        }
+                $path = $route["controller"];
+            };
+        };
 
-       $this->error();
+        empty($path) ? $this->error() : require basePath($path);
     }
 }
