@@ -14,8 +14,8 @@ $routes = require basePath("routes.php");
 
 // inspect($routes);
 
-$inituri = $_SERVER["REQUEST_URI"];
-$uri = substr($inituri, 13);
+$inituri = substr($_SERVER["REQUEST_URI"], 13);
+$uri = parse_url($inituri, PHP_URL_PATH);
 $method = $_SERVER["REQUEST_METHOD"];
 
 $router->route($uri, $method);
