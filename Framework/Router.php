@@ -87,7 +87,7 @@ class Router
         $path = "";
         foreach ($this->routes as $route) {
             if ($route["uri"] === $uri && $route["method"] === $method) {
-                $path = $route["controller"];
+                $path = "App/" . $route["controller"];
             };
         };
 
