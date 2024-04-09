@@ -1,0 +1,10 @@
+{
+    "name": "theharbdoul/myapp",
+    "description": "Testing new project",
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
