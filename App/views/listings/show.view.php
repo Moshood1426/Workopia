@@ -9,9 +9,10 @@
                 Back To Listings
             </a>
             <div class="flex space-x-4 ml-4">
-                <a href="/edit" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Edit</a>
+                <a href=<?= "/listings/edit/{$listing->id}" ?> class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Edit</a>
                 <!-- Delete Form -->
-                <form method="POST">
+                <form method="POST" action=<?= "/listings/{$listing->id}" ?>>
+                    <input name="_method" value="DELETE" type="hidden" />
                     <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">Delete</button>
                 </form>
                 <!-- End Delete Form -->
@@ -43,11 +44,10 @@
             Job Requirements
         </h3>
         <p>
-            Bachelors degree in Computer Science or related field, 3+ years of
-            software development experience
+            <?= $listing->requirements ?>
         </p>
         <h3 class="text-lg font-semibold mt-4 mb-2 text-blue-500">Benefits</h3>
-        <p>Healthcare, 401(k) matching, flexible work hours</p>
+        <p><?= $listing->benefits ?></p>
     </div>
     <p class="my-5">
         Put "Job Application" as the subject of your email and attach your

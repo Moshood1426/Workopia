@@ -93,6 +93,10 @@ class Router
     {
         $requestMethod = $_SERVER["REQUEST_METHOD"];
 
+        if ($requestMethod === 'POST' && isset($_POST["_method"])) {
+            $requestMethod = strtoupper($_POST["_method"]);
+        }
+
         foreach ($this->routes as $route) {
             $uriSegments = explode("/", trim($uri, "/"));
             $routeSegments = explode("/", trim($route['uri'], '/'));
@@ -109,7 +113,10 @@ class Router
                 for ($i = 0; $i < count($uriSegments); $i++) {
                     //checks if route and uri is different at a point which will mean
                     //theres a param waiting to be received
-                    if ($uriSegments[$i] !== $routeSegments[$i] && !preg_match('/\{(.+?)\}/', $routeSegments[$i])) {
+                    if (
+                        $uriSegments[$i] !== $routeSegments[$i] &&
+                        !preg_match('/\{(.+?)\}/', $routeSegments[$i])
+                    ) {
                         $match = false;
                         break;
                     }
