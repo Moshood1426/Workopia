@@ -97,6 +97,7 @@ class Router
             $requestMethod = strtoupper($_POST["_method"]);
         }
 
+        //HANDLE PARAMS
         foreach ($this->routes as $route) {
             $uriSegments = explode("/", trim($uri, "/"));
             $routeSegments = explode("/", trim($route['uri'], '/'));
