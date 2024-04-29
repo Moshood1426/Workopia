@@ -9,18 +9,24 @@
         <div class="message bg-green-100 p-3 my-3">
           This is a success message.
         </div> -->
-    <form>
+    <?php if (isset($errors)) : ?>
+      <?php foreach ($errors as $error) : ?>
+        <div class="message bg-red-100 my-3 px-2"><?= $error ?></div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+
+    <form method="POST" action="/auth/register">
       <div class="mb-4">
-        <input type="text" name="name" placeholder="Full Name" class="w-full px-4 py-2 border rounded focus:outline-none" />
+        <input type="text" name="name" placeholder="Full Name" class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user['name'] ?? '' ?>" />
       </div>
       <div class="mb-4">
-        <input type="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded focus:outline-none" />
+        <input type="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user['email'] ?? '' ?>" />
       </div>
       <div class="mb-4">
-        <input type="text" name="city" placeholder="City" class="w-full px-4 py-2 border rounded focus:outline-none" />
+        <input type="text" name="city" placeholder="City" class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user['city'] ?? '' ?>" />
       </div>
       <div class="mb-4">
-        <input type="text" name="state" placeholder="State" class="w-full px-4 py-2 border rounded focus:outline-none" />
+        <input type="text" name="state" placeholder="State" class="w-full px-4 py-2 border rounded focus:outline-none" value="<?= $user['state'] ?? '' ?>" />
       </div>
       <div class="mb-4">
         <input type="password" name="password" placeholder="Password" class="w-full px-4 py-2 border rounded focus:outline-none" />
