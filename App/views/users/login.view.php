@@ -9,7 +9,12 @@
         <div class="message bg-green-100 p-3 my-3">
           This is a success message.
         </div> -->
-    <form>
+    <?php if (isset($errors)) : ?>
+      <?php foreach ($errors as $error) : ?>
+        <div class="message bg-red-100 my-3 px-2"><?= $error ?></div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    <form method="POST" action="/auth/login">
       <div class="mb-4">
         <input type="email" name="email" placeholder="Email Address" class="w-full px-4 py-2 border rounded focus:outline-none" />
       </div>
